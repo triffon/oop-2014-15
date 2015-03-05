@@ -6,7 +6,22 @@
  */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+int gcd(int x, int y) {
+	if (x <= 0 || y <= 0) {
+		cout << "gcd: Грешни данни!\n";
+		return 1;
+	}
+	while (x != y)
+		if (x > y)
+			x -= y;
+		else
+			y -= x;
+
+	return x; // == y
+}
 
 // физическо представяне
 struct Rational {
@@ -21,7 +36,11 @@ struct Rational {
 	// конструктор с параметри
 	Rational(int n, int d) {
 		numer = n;
-		denom = d;
+		if (d == 0) {
+			cout << "Опит за подаване на знаменател 0!" << endl;
+			denom = 1;
+		} else
+			denom = d;
 	}
 
 	// селектор за числител
@@ -36,7 +55,8 @@ struct Rational {
 
 	// функция за извеждане
 	void print() {
-		cout << getNumerator() << '/' << getDenominator();
+		int g = gcd(getNumerator(), getDenominator());
+		cout << getNumerator() / g << '/' << getDenominator() / g;
 	}
 
 	// мутатор (функция за промяна) чрез въвеждане
@@ -45,6 +65,11 @@ struct Rational {
 		cin >> numer;
 		cin.ignore();
 		cin >> denom;
+	}
+
+	// селектор за конвертиране към double
+	double toDouble() {
+		return (double)getNumerator() / getDenominator();
 	}
 };
 
@@ -70,6 +95,21 @@ Rational divide(Rational p, Rational q) {
 					p.getDenominator() * q.getNumerator());
 }
 
+int fact(int n) {
+	if (n == 0)
+		return 1;
+	return n * fact(n - 1);
+}
+
+Rational sum(int x, int n) {
+	Rational result;
+	for(int i = 0; i <= n; i++) {
+		Rational term(pow(x, i), fact(i));
+		result = add(result, term);
+	}
+	return result;
+}
+
 int main() {
 	// Rational r = Rational();
 	Rational r = Rational(3, 4);
@@ -85,5 +125,9 @@ int main() {
 	p.print();cout << endl;
 	multiply(r, q).print();cout << endl;
 	divide(r, q).print();cout << endl;
+	sum(1, 5).print();cout << endl;
+	cout << sum(1, 5).toDouble() << endl;
+	Rational s(1E9, 2E9);
+	multiply(s, s).print();cout << endl;
 	return 0;
 }
