@@ -41,6 +41,13 @@ struct Rational {
 			denom = 1;
 		} else
 			denom = d;
+		if (numer != 0) {
+			int g = gcd(numer, denom);
+			numer /= g;
+			denom /= g;
+		}
+		else
+			denom = 1;
 	}
 
 	// селектор за числител
@@ -55,8 +62,7 @@ struct Rational {
 
 	// функция за извеждане
 	void print() {
-		int g = gcd(getNumerator(), getDenominator());
-		cout << getNumerator() / g << '/' << getDenominator() / g;
+		cout << getNumerator() << '/' << getDenominator();
 	}
 
 	// мутатор (функция за промяна) чрез въвеждане
@@ -129,5 +135,7 @@ int main() {
 	cout << sum(1, 5).toDouble() << endl;
 	Rational s(1E9, 2E9);
 	multiply(s, s).print();cout << endl;
+	Rational t(0, 1000);
+	t.print();cout << endl;
 	return 0;
 }
