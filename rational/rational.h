@@ -14,13 +14,18 @@ private:
 	int gcd(int, int);
 
 public:
+	// конструктори
 	Rational();
 	Rational(int, int);
-	int getNumerator();
-	int getDenominator();
-	void print();
+
+	// селектори
+	int getNumerator() const;
+	int getDenominator() const;
+	void print() const;
+	double toDouble() const;
+
+	// мутатори
 	void read();
-	double toDouble();
 };
 
 Rational add(Rational, Rational);

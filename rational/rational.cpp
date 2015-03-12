@@ -48,17 +48,17 @@ Rational::Rational(int n, int d) {
 }
 
 // селектор за числител
-int Rational::getNumerator() {
+int Rational::getNumerator() const {
 	return numer;
 }
 
 // селектор за знаменател
-int Rational::getDenominator() {
+int Rational::getDenominator() const {
 	return denom;
 }
 
 // функция за извеждане
-void Rational::print() {
+void Rational::print() const {
 	cout << getNumerator() << '/' << getDenominator();
 }
 
@@ -71,7 +71,7 @@ void Rational::read() {
 }
 
 // селектор за конвертиране към double
-double Rational::toDouble() {
+double Rational::toDouble() const {
 	return (double)getNumerator() / getDenominator();
 }
 

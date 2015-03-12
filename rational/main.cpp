@@ -45,6 +45,8 @@ int main() {
 	Rational s(1E9, 2E9);
 	multiply(s, s).print();cout << endl;
 	Rational t(0, 1000);
+// !!!	Rational x();
+// !!!	x.print();
 	t.print();cout << endl;
 	return 0;
 }
