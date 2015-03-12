@@ -15,12 +15,18 @@ private:
 
 public:
 	// конструктори
-	Rational();
+
+	// конструктор по подразбиране
+	Rational() {
+		numer = 0;
+		denom = 1;
+	}
+
 	Rational(int, int);
 
 	// селектори
-	int getNumerator() const;
-	int getDenominator() const;
+	int getNumerator() const { return numer; }
+	int getDenominator() const { return denom; }
 	void print() const;
 	double toDouble() const;
 

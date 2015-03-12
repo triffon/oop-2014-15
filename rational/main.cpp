@@ -31,7 +31,7 @@ int main() {
 	// Rational r = { 3, 4 };
 	r.print();
 	cout << endl;
-	Rational q;
+	Rational q; // q.numer = 0; q.denom = 1;
 	q.read();
 	q.print();
 	cout << endl;
@@ -48,5 +48,6 @@ int main() {
 // !!!	Rational x();
 // !!!	x.print();
 	t.print();cout << endl;
+	Rational z(3, 0);
 	return 0;
 }

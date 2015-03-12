@@ -10,6 +10,15 @@ using namespace std;
 
 #include "rational.h"
 
+// char endl = '5';
+
+void read() {
+	int n;
+	cout << "Please enter a number: ";
+	cin >> n;
+	cout << "Thank you!" << std::endl;
+}
+
 int Rational::gcd(int x, int y) {
 	if (x <= 0 || y <= 0) {
 		cout << "gcd: Грешни данни!\n";
@@ -24,37 +33,22 @@ int Rational::gcd(int x, int y) {
 	return x; // == y
 }
 
-// конструктор по подразбиране
-Rational::Rational() {
-	numer = 0;
-	denom = 1;
-}
 
 // конструктор с параметри
-Rational::Rational(int n, int d) {
-	numer = n;
+Rational::Rational(int numer, int d) {
+	this->numer = numer;
 	if (d == 0) {
-		cout << "Опит за подаване на знаменател 0!" << endl;
+		cout << "Опит за подаване на знаменател 0!" << std::endl;
 		denom = 1;
 	} else
 		denom = d;
 	if (numer != 0) {
 		int g = gcd(numer, denom);
-		numer /= g;
+		this->numer /= g;
 		denom /= g;
 	}
 	else
 		denom = 1;
-}
-
-// селектор за числител
-int Rational::getNumerator() const {
-	return numer;
-}
-
-// селектор за знаменател
-int Rational::getDenominator() const {
-	return denom;
 }
 
 // функция за извеждане
