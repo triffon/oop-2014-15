@@ -9,6 +9,38 @@
 using namespace std;
 #include "stack.h"
 
+bool matchParentheses(char open, char close) {
+	return open == '(' && close == ')' ||
+			open == '[' && close == ']' ||
+			open == '{' && close == '}' ||
+			open == '<' && close == '>';
+}
+
+bool checkParentheses(char const* s) {
+	Stack stack;
+	char const* p = s;
+	while (*p != '\0') {
+		switch (*p) {
+		case '(':
+		case '[':
+		case '{':
+		case '<':
+			stack.push(*p);
+			break;
+		case ')':
+		case ']':
+		case '}':
+		case '>':
+			if (stack.empty() ||
+				!matchParentheses(stack.pop(), *p))
+				return false;
+			break;
+		}
+		p++;
+	}
+	return stack.empty();
+}
+
 void testStack() {
 	Stack s;
 	for(int i = 1; i <= 10; i++)
@@ -17,8 +49,21 @@ void testStack() {
 		cout << s.pop() << endl;
 }
 
+void testParentheses() {
+	const int MAX = 1000;
+	char s[MAX];
+	cin.getline(s, MAX);
+	cout << "Скобите са ";
+	if (checkParentheses(s))
+		cout << "OК\n";
+	else
+		cout << "сгрешени!\n";
+}
+
 int main() {
-	testStack();
+	// testStack();
+	// testParentheses();
+	return 0;
 }
 
 
