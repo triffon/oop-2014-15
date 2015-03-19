@@ -81,10 +81,47 @@ void testDynamic() {
 	// !!! delete p;
 }
 
+double* resize(double* a, int& capacity) {
+	int oldCapacity = capacity;
+	// capacity++;
+	capacity *= 2;
+	double* newa = new double[capacity];
+	for(int i = 0; i < oldCapacity; i++)
+		newa[i] = a[i];
+	delete[] a;
+	return newa;
+}
+
+void findAverage() {
+	// double a[10];
+	int n = 0;
+	int capacity = 4;
+	double* a = new double[capacity];
+	do {
+		cout << "a[" << n << "] = ";
+		// cin >> a[n];
+		a[n] = n + 1;
+		n++;
+		if (n == capacity) {
+			cout << "Разширяваме масива!" << endl;
+			a = resize(a, capacity);
+		}
+	} while (a[n-1] != 0);
+	n--;
+	double sum = 0;
+	for(int i = 0; i < n; i++) {
+		sum += a[i];
+		cout << a[i] << ' ';
+	}
+	cout << endl;
+	cout << "Средно: " << sum / n << endl;
+}
+
 int main() {
 	// testStack();
 	// testParentheses();
-	testDynamic();
+	// testDynamic();
+	findAverage();
 	return 0;
 }
 
