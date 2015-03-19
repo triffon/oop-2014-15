@@ -60,9 +60,31 @@ void testParentheses() {
 		cout << "сгрешени!\n";
 }
 
+void testDynamic() {
+	int* p = new int(5);
+	int& x = *p;
+	cout << x << endl;
+	x = 30;
+	cout << x << endl;
+	char* s = new char[x];
+	cin.getline(s, x);
+	cout << s << endl;
+	delete p;
+	// !!! *p = 10;
+	// !!! cout << x << endl;
+	// !!! delete p;
+	// !!! delete[] (s+1);
+	delete[] s;
+	// !!! cout << s << endl;
+	int y = 20;
+	p = &y;
+	// !!! delete p;
+}
+
 int main() {
 	// testStack();
 	// testParentheses();
+	testDynamic();
 	return 0;
 }
 
