@@ -17,12 +17,12 @@ public:
 	// конструктори
 
 	// конструктор по подразбиране
-	Rational() {
-		numer = 0;
-		denom = 1;
-	}
+	// и конструктор с 1 параметър
+	// и конструктор с 2 параметъра;
+	Rational(int = 0, int = 1);
 
-	Rational(int, int);
+	// конструктор за копиране
+	Rational(Rational const&);
 
 	// селектори
 	int getNumerator() const { return numer; }
