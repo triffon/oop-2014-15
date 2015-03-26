@@ -9,8 +9,9 @@
 using namespace std;
 #include "stack.h"
 #include "rstack.h"
+#include "lstack.h"
 
-typedef ResizingStack TestStack;
+typedef LinkedStack TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
