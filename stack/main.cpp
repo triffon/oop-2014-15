@@ -8,6 +8,9 @@
 #include <iostream>
 using namespace std;
 #include "stack.h"
+#include "rstack.h"
+
+typedef ResizingStack TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
@@ -17,7 +20,7 @@ bool matchParentheses(char open, char close) {
 }
 
 bool checkParentheses(char const* s) {
-	Stack stack;
+	TestStack stack;
 	char const* p = s;
 	while (*p != '\0') {
 		switch (*p) {
@@ -42,8 +45,8 @@ bool checkParentheses(char const* s) {
 }
 
 void testStack() {
-	Stack s;
-	for(int i = 1; i <= 10; i++)
+	TestStack s;
+	for(int i = 1; i <= 101; i++)
 		s.push(i);
 	while (!s.empty())
 		cout << s.pop() << endl;
@@ -118,10 +121,10 @@ void findAverage() {
 }
 
 int main() {
-	// testStack();
-	// testParentheses();
+	testStack();
+	testParentheses();
 	// testDynamic();
-	findAverage();
+	// findAverage();
 	return 0;
 }
 
