@@ -47,10 +47,16 @@ bool checkParentheses(char const* s) {
 
 void testStack() {
 	TestStack s;
-	for(int i = 1; i <= 101; i++)
+	for(int i = 1; i <= 100; i++)
 		s.push(i);
+
+	TestStack s2 = s;
+	// s.pop();
+	s2.pop();
+	s2.push(10);
+
 	while (!s.empty())
-		cout << s.pop() << endl;
+			cout << s.pop() << endl;
 }
 
 void testParentheses() {
@@ -121,11 +127,26 @@ void findAverage() {
 	cout << "Средно: " << sum / n << endl;
 }
 
+void testMemory() {
+	for(int i = 0; i < 1E8; i++)
+	{
+		TestStack* s = new TestStack;
+		for(int i = 0; i < 10; i++)
+			s->push(i);
+		while (!s->empty())
+			s->pop();
+		delete s;
+	}
+	char c;
+	cin >> c;
+}
+
 int main() {
-	testStack();
-	testParentheses();
+	// testStack();
+	// testParentheses();
 	// testDynamic();
 	// findAverage();
+	testMemory();
 	return 0;
 }
 
