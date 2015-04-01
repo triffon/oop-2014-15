@@ -33,6 +33,7 @@ Monster::Monster(const Monster& other) :name(NULL) {
 Monster& Monster::operator=(const Monster& other) {
     std::cout<<name<<" turned into "<<other.name<<"!"<<std::endl;
     copy(other);
+    return *this;
 }
 
 Monster::~Monster() {
