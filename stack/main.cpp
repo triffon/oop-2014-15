@@ -8,6 +8,10 @@
 #include <iostream>
 using namespace std;
 #include "stack.h"
+#include "rstack.h"
+#include "lstack.h"
+
+typedef LinkedStack TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
@@ -17,7 +21,7 @@ bool matchParentheses(char open, char close) {
 }
 
 bool checkParentheses(char const* s) {
-	Stack stack;
+	TestStack stack;
 	char const* p = s;
 	while (*p != '\0') {
 		switch (*p) {
@@ -42,11 +46,17 @@ bool checkParentheses(char const* s) {
 }
 
 void testStack() {
-	Stack s;
-	for(int i = 1; i <= 10; i++)
+	TestStack s;
+	for(int i = 1; i <= 100; i++)
 		s.push(i);
+
+	TestStack s2 = s;
+	// s.pop();
+	s2.pop();
+	s2.push(10);
+
 	while (!s.empty())
-		cout << s.pop() << endl;
+			cout << s.pop() << endl;
 }
 
 void testParentheses() {
@@ -117,11 +127,26 @@ void findAverage() {
 	cout << "Средно: " << sum / n << endl;
 }
 
+void testMemory() {
+	for(int i = 0; i < 1E8; i++)
+	{
+		TestStack* s = new TestStack;
+		for(int i = 0; i < 10; i++)
+			s->push(i);
+		while (!s->empty())
+			s->pop();
+		delete s;
+	}
+	char c;
+	cin >> c;
+}
+
 int main() {
 	// testStack();
 	// testParentheses();
 	// testDynamic();
-	findAverage();
+	// findAverage();
+	testMemory();
 	return 0;
 }
 

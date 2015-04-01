@@ -35,16 +35,15 @@ int Rational::gcd(int x, int y) {
 
 
 // конструктор с параметри
-Rational::Rational(int numer, int d) {
-	this->numer = numer;
-	if (d == 0) {
+Rational::Rational(int n, int d)
+	: numer(n), denom(d) {
+	if (denom == 0) {
 		cout << "Опит за подаване на знаменател 0!" << std::endl;
 		denom = 1;
-	} else
-		denom = d;
+	}
 	if (numer != 0) {
 		int g = gcd(numer, denom);
-		this->numer /= g;
+		numer /= g;
 		denom /= g;
 	}
 	else
@@ -91,5 +90,12 @@ Rational divide(Rational p, Rational q) {
 					p.getDenominator() * q.getNumerator());
 }
 
+
+Rational::Rational(Rational const& r) :
+		numer(r.numer), denom(r.denom) {
+	cout << "Внимание: копираме ";
+	r.print();
+	cout << "!\n";
+}
 
 

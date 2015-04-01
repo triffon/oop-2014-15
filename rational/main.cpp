@@ -25,7 +25,7 @@ Rational sum(int x, int n) {
 	return result;
 }
 
-int main() {
+void testRationals() {
 	// Rational r = Rational();
 	Rational r = Rational(3, 4);
 	// Rational r = { 3, 4 };
@@ -49,5 +49,21 @@ int main() {
 // !!!	x.print();
 	t.print();cout << endl;
 	Rational z(3, 0);
-	return 0;
+}
+
+void testConstructors() {
+	Rational r1;
+	Rational r2(3);
+	Rational r3(3,4);
+	r1.print();cout << endl;
+	r2.print();cout << endl;
+	r3.print();cout << endl;
+	Rational r4 = r3;
+	r4.print();cout << endl;
+	add(r3, r4).print();
+}
+
+int main() {
+	// testRationals();
+	testConstructors();
 }
