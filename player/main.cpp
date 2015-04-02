@@ -23,5 +23,7 @@ int main() {
 	p1.print();
 	p2.print();
 	anonymousPrint(p1);
+	p1.print();
+	p2.print();
 	return 0;
 }

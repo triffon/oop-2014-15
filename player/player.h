@@ -8,15 +8,16 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-int const MAX = 51;
+const size_t MAX = 1501;
 
 class Player {
-	char name[MAX];
+	char* name;
 	int points;
 public:
 
 	// конструктор
 	Player(char const* = "", int = 0);
+	Player(Player const&);
 
 	// селектори
 	char const* getName() const { return name; }

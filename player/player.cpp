@@ -6,14 +6,20 @@
  */
 
 #include <cstring>
+#include <cmath>
 #include <iostream>
 using namespace std;
 
 #include "player.h"
 
 Player::Player(const char* _name, int _points)
-	: points(_points) {
+	: name(NULL), points(_points) {
 	setName(_name);
+}
+
+Player::Player(Player const& p)
+	: name(NULL), points(p.points) {
+	setName(p.name);
 }
 
 void Player::print() const {
@@ -22,8 +28,11 @@ void Player::print() const {
 }
 
 void Player::setName(const char* _name) {
-	strncpy(name, _name, MAX);
-	name[MAX-1] = '\0';
+	size_t m = min(strlen(_name) + 1, MAX);
+	delete[] name;
+	name = new char[m];
+	strncpy(name, _name, m);
+	name[m - 1] = '\0';
 }
 
 
