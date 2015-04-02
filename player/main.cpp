@@ -25,5 +25,11 @@ int main() {
 	anonymousPrint(p1);
 	p1.print();
 	p2.print();
+	Player* p3 = new Player("Кетнис Евърдийн", 30);
+	p3->print();
+	char const* n = p3->getName();
+	cout << n << endl;
+	delete p3;
+	// !!! cout << n << endl;
 	return 0;
 }
