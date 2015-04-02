@@ -35,6 +35,10 @@ void Player::setName(const char* _name) {
 	name[m - 1] = '\0';
 }
 
+Player::~Player() {
+	delete[] name;
+}
+
 
 
 

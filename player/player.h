@@ -28,6 +28,9 @@ public:
 	void setName(char const*);
 	void setPoints(int p) { points = p; }
 
+	// деструктори
+	~Player();
+
 };
 
 
