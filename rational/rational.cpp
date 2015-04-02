@@ -48,6 +48,9 @@ Rational::Rational(int n, int d)
 	}
 	else
 		denom = 1;
+	cout << "Създаваме ново рационално число ";
+	print();
+	cout << endl;
 }
 
 // функция за извеждане

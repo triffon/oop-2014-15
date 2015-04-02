@@ -9,6 +9,7 @@
 #include <cmath>
 using namespace std;
 #include "rational.h"
+#include "rational_point.h"
 
 int fact(int n) {
 	if (n == 0)
@@ -53,7 +54,8 @@ void testRationals() {
 
 void testConstructors() {
 	Rational r1;
-	Rational r2(3);
+//	Rational r2(3);
+	Rational r2 = 3; // <-> Rational r2 = Rational(3);
 	Rational r3(3,4);
 	r1.print();cout << endl;
 	r2.print();cout << endl;
@@ -61,9 +63,33 @@ void testConstructors() {
 	Rational r4 = r3;
 	r4.print();cout << endl;
 	add(r3, r4).print();
+	add(3, r3).print();
+	add(5, 5).print();
+}
+
+void testRationalPoint() {
+	RationalPoint p;
+	RationalPoint q = p;
+	p.print();cout << endl;
+	q.print();cout << endl;
+}
+
+void testArrays() {
+	Rational p(1,3), q(3, 5);
+	Rational a[6] = { Rational(),
+			Rational(5, 7),
+			p, Rational(q), 1 };
+	for(int i = 0; i < 6; i++) {
+		a[i].print();
+		cout << endl;
+	}
+	Rational* r = new Rational(7);
+	Rational* b = new Rational[10];
 }
 
 int main() {
 	// testRationals();
-	testConstructors();
+	// testConstructors();
+	// testRationalPoint();
+	testArrays();
 }
