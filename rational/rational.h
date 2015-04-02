@@ -32,6 +32,9 @@ public:
 
 	// мутатори
 	void read();
+
+	// безсмислен деструктор
+	~Rational();
 };
 
 Rational add(Rational, Rational);

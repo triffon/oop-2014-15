@@ -101,4 +101,7 @@ Rational::Rational(Rational const& r) :
 	cout << "!\n";
 }
 
-
+Rational::~Rational() {
+	cout << "Унищожаваме ";print();
+	cout << endl;
+}

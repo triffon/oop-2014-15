@@ -85,6 +85,8 @@ void testArrays() {
 	}
 	Rational* r = new Rational(7);
 	Rational* b = new Rational[10];
+	delete r;
+	delete[] b;
 }
 
 int main() {
