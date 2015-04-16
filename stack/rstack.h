@@ -25,6 +25,9 @@ public:
 	// създаване на празен стек
 	ResizingStack();
 
+	// конструктор за копиране
+	ResizingStack(ResizingStack const&);
+
 	// селектори
 
 	// проверка дали стек е празен
@@ -40,6 +43,9 @@ public:
 
 	// изключване на елемент
 	int pop();
+
+	// деструктор
+	~ResizingStack();
 
 };
 

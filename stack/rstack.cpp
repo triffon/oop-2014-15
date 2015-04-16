@@ -61,4 +61,17 @@ int ResizingStack::pop() {
 	return a[top--];
 }
 
+ResizingStack::~ResizingStack() {
+	delete[] a;
+	// !!! while (!empty()) pop();
+	// !!! for(int i = 0; i < capacity; i++) a[i] = 0;
+}
+
+ResizingStack::ResizingStack(ResizingStack const& rs)
+	: top(rs.top), capacity(rs.capacity) {
+	a = new int[capacity];
+	for(int i = 0; i <= top; i++)
+		a[i] = rs.a[i];
+}
+
 

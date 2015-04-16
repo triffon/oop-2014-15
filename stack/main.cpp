@@ -11,7 +11,7 @@ using namespace std;
 #include "rstack.h"
 #include "lstack.h"
 
-typedef LinkedStack TestStack;
+typedef ResizingStack TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
@@ -141,12 +141,27 @@ void testMemory() {
 	cin >> c;
 }
 
+void printStack(TestStack& stack) {
+	while (!stack.empty())
+		cout << stack.pop() << endl;
+}
+
+void testCopy() {
+	TestStack s;
+	for(int i = 1; i <= 10; i++)
+		s.push(i);
+	TestStack s2 = s;
+	printStack(s);
+	printStack(s2);
+}
+
 int main() {
 	// testStack();
 	// testParentheses();
 	// testDynamic();
 	// findAverage();
-	testMemory();
+	// testMemory();
+	testCopy();
 	return 0;
 }
 
