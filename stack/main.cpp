@@ -146,13 +146,27 @@ void printStack(TestStack& stack) {
 		cout << stack.pop() << endl;
 }
 
+TestStack operator+(TestStack s, int y) {
+	s.push(y);
+	return s;
+}
+
+TestStack operator+(int y, TestStack s) {
+	if (s.top == NULL)
+		cout << "Това е първи елемент!\n";
+	return s + y;
+}
+
+
 void testCopy() {
 	TestStack s;
 	for(int i = 1; i <= 10; i++)
 		s.push(i);
-	TestStack s2 = s;
+	TestStack s2 = s + 11 + 12;
+	TestStack s3 = 15 + s2;
 	printStack(s);
 	printStack(s2);
+	printStack(s3);
 }
 
 int main() {

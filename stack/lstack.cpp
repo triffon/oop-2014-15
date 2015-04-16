@@ -96,3 +96,4 @@ LinkedStack::LinkedStack(LinkedStack const& ls)
 	lastCopied->next = NULL;
 
 }
+

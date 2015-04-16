@@ -42,6 +42,8 @@ public:
 
 	// деструктор
 	~LinkedStack();
+
+	friend LinkedStack operator+(int, LinkedStack);
 };
 
 
