@@ -39,6 +39,23 @@ Player::~Player() {
 	delete[] name;
 }
 
+ostream& operator<<(ostream& os, Player const& p) {
+	return os << "Играч " << p.name << " има "
+			   << p.points << " точки" << endl;
+}
 
+istream& operator>>(istream& is, Player& p) {
+	// !!!! return is.getline(p.name, MAX) >> p.points;
+	char buffer[MAX];
+	is.getline(buffer, MAX);
+	p.setName(buffer);
+	return is >> p.points;
+}
 
-
+Player& Player::operator=(Player const& p) {
+	if (&p != this) {
+		setName(p.getName());
+		setPoints(p.getPoints());
+	}
+	return *this;
+}

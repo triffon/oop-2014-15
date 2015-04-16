@@ -10,13 +10,16 @@
 
 const size_t MAX = 1501;
 
+#include <iostream>
+using namespace std;
+
 class Player {
 	char* name;
 	int points;
 public:
 
 	// конструктор
-	Player(char const* = "", int = 0);
+	Player(char const* = "<анонимен>", int = 0);
 	Player(Player const&);
 
 	// селектори
@@ -27,9 +30,13 @@ public:
 	// мутатори
 	void setName(char const*);
 	void setPoints(int p) { points = p; }
+	Player& operator=(Player const&);
 
 	// деструктори
 	~Player();
+
+	friend ostream& operator<<(ostream&, Player const&);
+	friend istream& operator>>(istream&, Player&);
 
 };
 
