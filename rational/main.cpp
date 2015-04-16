@@ -89,9 +89,20 @@ void testArrays() {
 	delete[] b;
 }
 
+double square(double x) {
+	return x * x;
+}
+
+void testOperators() {
+	Rational r(5, 2);
+	cout << r;
+	cout << square(r);
+}
+
 int main() {
 	// testRationals();
 	// testConstructors();
 	// testRationalPoint();
-	testArrays();
+	// testArrays();
+	testOperators();
 }

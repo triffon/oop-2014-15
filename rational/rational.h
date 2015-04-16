@@ -30,6 +30,8 @@ public:
 	void print() const;
 	double toDouble() const;
 
+	operator double() const;
+
 	// мутатори
 	void read();
 

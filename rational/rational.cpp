@@ -105,3 +105,7 @@ Rational::~Rational() {
 	cout << "Унищожаваме ";print();
 	cout << endl;
 }
+
+Rational::operator double() const {
+	return (double)numer / (double)denom;
+}
