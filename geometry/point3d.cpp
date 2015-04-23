@@ -16,7 +16,7 @@ Point3D::Point3D() {
 	setZ(0);
 }
 
-Point3D::Point3D(Point2D _p, double _z) {
+Point3D::Point3D(Point2DD _p, double _z) {
 	p = _p;
 	z = _z;
 }
@@ -48,7 +48,7 @@ double Point3D::vectorLength() const {
 	return sqrt(p.vectorLength()*p.vectorLength() +
 				getZ() * getZ());
 	*/
-	return Point2D(getP().vectorLength(), getZ()).
+	return Point2DD(getP().vectorLength(), getZ()).
 			vectorLength();
 }
 
@@ -80,3 +80,6 @@ void Point3D::reflect() {
 }
 
 
+istream& operator>>(istream& is , Point3D& p) {
+	return is >> p.p >> p.z;
+}

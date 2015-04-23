@@ -5,26 +5,64 @@
  *      Author: trifon
  */
 
+#ifndef POINT2D_CPP_
+#define POINT2D_CPP_
+
 #include <iostream>
 #include <cmath>
 using namespace std;
 
-#include "point2d.h"
+template <typename T>
+class Point2D {
+	T x, y;
 
-Point2D::Point2D(double _x, double _y) {
+public:
+
+	// конструктори
+	Point2D() { x = y = 0; }
+	Point2D(T, T);
+
+	// селектори
+	T getX() const { return x; }
+	T getY() const { return y; }
+	void print() const;
+	double vectorLength() const;
+	double distance(Point2D) const;
+	// a.distance(b);
+	// distance(a, b); - ако е външна функция
+
+	// мутатори
+	void setX(T _x) { x = _x; }
+	void setY(T _y) { y = _y; }
+	void translate(Point2D);
+	// a.translate(b);
+	// премести точката a с вектор, който е
+	// определен от точката b
+	void reflect();
+
+	friend istream& operator>>(istream& is, Point2D& p) {
+		return is >> p.x >> p.y;
+	}
+};
+
+template <typename T>
+Point2D<T>::Point2D(T _x, T _y) {
 	x = _x;
 	y = _y;
 }
 
-void Point2D::print() const {
+template <typename T>
+void Point2D<T>::print() const {
 	cout << '(' << x << ", " << y << endl;
 }
 
-double Point2D::vectorLength() const {
+template <typename T>
+double Point2D<T>::vectorLength() const {
 	return sqrt(x*x + y*y);
 }
 
-double Point2D::distance(Point2D p) const {
+template <typename T>
+double Point2D<T>::distance(Point2D<T> p) const {
 	/*
 	return sqrt((x-p.x)*(x-p.x) +
 				(y-p.y)*(y-p.y));
@@ -39,7 +77,8 @@ double Point2D::distance(Point2D p) const {
 	return p.vectorLength();
 }
 
-void Point2D::translate(Point2D p) {
+template <typename T>
+void Point2D<T>::translate(Point2D<T> p) {
 	/*
 	x += p.x;
 	y += p.y;
@@ -48,7 +87,8 @@ void Point2D::translate(Point2D p) {
 	setY(getY() + p.getY());
 }
 
-void Point2D::reflect() {
+template <typename T>
+void Point2D<T>::reflect() {
 	/*
 	x = -x;
 	y = -y;
@@ -58,3 +98,4 @@ void Point2D::reflect() {
 }
 
 
+#endif
