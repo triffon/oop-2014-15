@@ -11,7 +11,7 @@ using namespace std;
 #include "rstack.h"
 #include "lstack.h"
 
-typedef ResizingStack TestStack;
+typedef LinkedStack TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
@@ -164,7 +164,8 @@ void testCopy() {
 	for(int i = 1; i <= 10; i++)
 		s.push(i);
 	TestStack s2 = s + 11 + 12;
-	TestStack s3 = 15 + s2;
+	TestStack s3 = s;
+	s3 = 15 + s2;
 	printStack(s);
 	printStack(s2);
 	printStack(s3);

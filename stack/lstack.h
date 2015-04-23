@@ -24,6 +24,9 @@ public:
 	// конструктор за копиране
 	LinkedStack(LinkedStack const&);
 
+	// операция за присвояване
+	LinkedStack& operator=(LinkedStack const&);
+
 	// селектори
 
 	// проверка дали стек е празен

@@ -76,24 +76,35 @@ LinkedStack::LinkedStack(LinkedStack const& ls)
 		toCopy = toCopy->next;
 	}
 	*/
-	StackElement* toCopy = ls.top;
-	StackElement *copy, *lastCopied = NULL;
-	while (toCopy != NULL) {
-		copy = new StackElement;
-
-		if (top == NULL)
-			top = copy;
-
-		copy->data = toCopy->data;
-
-		if (lastCopied != NULL)
-			lastCopied->next = copy;
-
-		// преместване на указателите
-		lastCopied = copy;
-		toCopy = toCopy->next;
-	}
-	lastCopied->next = NULL;
+	*this = ls;
+	// this->operator=(ls);
+	// operator=(ls);
 
 }
 
+LinkedStack& LinkedStack::operator=(LinkedStack const& ls) {
+	if (this != &ls) {
+		// !!! ~LinkedStack();
+		while (!empty()) pop();
+
+		StackElement* toCopy = ls.top;
+		StackElement *copy, *lastCopied = NULL;
+		while (toCopy != NULL) {
+			copy = new StackElement;
+
+			if (top == NULL)
+				top = copy;
+
+			copy->data = toCopy->data;
+
+			if (lastCopied != NULL)
+				lastCopied->next = copy;
+
+			// преместване на указателите
+			lastCopied = copy;
+			toCopy = toCopy->next;
+		}
+		lastCopied->next = NULL;
+	}
+	return *this;
+}
