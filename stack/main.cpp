@@ -9,9 +9,10 @@
 using namespace std;
 #include "stack.h"
 #include "rstack.h"
-#include "lstack.h"
+#include "lstack.cpp"
+#include "point2d.cpp"
 
-typedef LinkedStack TestStack;
+typedef LinkedStack<int> TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
@@ -21,7 +22,7 @@ bool matchParentheses(char open, char close) {
 }
 
 bool checkParentheses(char const* s) {
-	TestStack stack;
+	LinkedStack<char> stack;
 	char const* p = s;
 	while (*p != '\0') {
 		switch (*p) {
@@ -146,25 +147,39 @@ void printStack(TestStack& stack) {
 		cout << stack.pop() << endl;
 }
 
+/*
 TestStack operator+(TestStack s, int y) {
 	s.push(y);
 	return s;
 }
+*/
 
+template <typename T>
+LinkedStack<T> operator+(LinkedStack<T> ls, T const& y) {
+	ls.push(y);
+	return ls;
+}
+/*
 TestStack operator+(int y, TestStack s) {
 	// !!! if (s.top == NULL)
 	if (s.empty())
 		cout << "Това е първи елемент!\n";
 	return s + y;
 }
+*/
+
+template <typename T>
+LinkedStack<T> operator+(T const& y, LinkedStack<T> ls) {
+	return ls + y;
+}
 
 
 void testCopy() {
-	TestStack s;
+	LinkedStack<int> s;
 	for(int i = 1; i <= 10; i++)
 		s.push(i);
-	TestStack s2 = s + 11 + 12;
-	TestStack s3 = s;
+	LinkedStack<int> s2 = s + 11 + 12;
+	LinkedStack<int> s3 = s;
 	s3 = 15 + s2;
 	printStack(s);
 	printStack(s2);
@@ -173,11 +188,18 @@ void testCopy() {
 
 int main() {
 	// testStack();
-	// testParentheses();
+	testParentheses();
 	// testDynamic();
 	// findAverage();
 	// testMemory();
-	testCopy();
+	// testCopy();
+	LinkedStack<double> ls;
+	ls.push(1.8);
+	cout << ls.pop() << endl;
+
+	LinkedStack<Point2D<double> > sp;
+	Point2D<double> p(1,2);
+	sp.push(p);
 	return 0;
 }
 

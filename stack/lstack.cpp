@@ -6,19 +6,65 @@
  *      Author: trifon
  */
 
+#ifndef LSTACK_CPP_
+#define LSTACK_CPP_
+
 #include <iostream>
 using namespace std;
-#include "lstack.h"
 
-LinkedStack::LinkedStack() {
+template <typename T>
+struct StackElement {
+	T data;
+	StackElement* next;
+};
+
+template <typename T>
+class LinkedStack {
+private:
+	StackElement<T>* top;
+
+public:
+	// създаване на празен стек
+	LinkedStack();
+
+	// конструктор за копиране
+	LinkedStack(LinkedStack const&);
+
+	// операция за присвояване
+	LinkedStack& operator=(LinkedStack const&);
+
+	// селектори
+
+	// проверка дали стек е празен
+	bool empty() const;
+
+	// намиране на елемента на върха на стека
+	T peek() const;
+
+	// мутатори
+
+	// включване на елемент
+	void push(T const&);
+
+	// изключване на елемент
+	T pop();
+
+	// деструктор
+	~LinkedStack();
+};
+
+template <typename T>
+LinkedStack<T>::LinkedStack() {
 	top = NULL;
 }
 
-bool LinkedStack::empty() const {
+template <typename T>
+bool LinkedStack<T>::empty() const {
 	return top == NULL;
 }
 
-int LinkedStack::peek() const {
+template <typename T>
+T LinkedStack<T>::peek() const {
 	if (empty()) {
 		cout << "Грешка: опит за поглеждане в празен стек!\n";
 		return 0;
@@ -27,33 +73,36 @@ int LinkedStack::peek() const {
 	return top->data;
 }
 
-void LinkedStack::push(int x) {
-	StackElement* p = new StackElement;
+template <typename T>
+void LinkedStack<T>::push(T const& x) {
+	StackElement<T>* p = new StackElement<T>;
 	p->data = x;
 	p->next = top;
 	top = p;
 }
 
-int LinkedStack::pop() {
+template <typename T>
+T LinkedStack<T>::pop() {
 	if (empty()) {
 		cout << "Грешка: опит за изключване от празен стек!\n";
 		return 0;
 	}
 	// top != NULL
 
-	StackElement* p = top;
+	StackElement<T>* p = top;
 	top = top->next;
-	int x = p->data;
+	T x = p->data;
 	delete p;
 	return x;
 }
 
-LinkedStack::~LinkedStack() {
+template <typename T>
+LinkedStack<T>::~LinkedStack() {
 	/*
 	 * while (!empty())
 		pop();
 	 */
-	StackElement* toDelete;
+	StackElement<T>* toDelete;
 	while (top != NULL) {
 		toDelete = top;
 		top = top->next;
@@ -62,7 +111,8 @@ LinkedStack::~LinkedStack() {
 	// top == NULL
 }
 
-LinkedStack::LinkedStack(LinkedStack const& ls)
+template <typename T>
+LinkedStack<T>::LinkedStack(LinkedStack<T> const& ls)
 	: top(NULL) {
 	/*
 	while (!ls.empty()) {
@@ -82,15 +132,16 @@ LinkedStack::LinkedStack(LinkedStack const& ls)
 
 }
 
-LinkedStack& LinkedStack::operator=(LinkedStack const& ls) {
+template <typename T>
+LinkedStack<T>& LinkedStack<T>::operator=(LinkedStack<T> const& ls) {
 	if (this != &ls) {
 		// !!! ~LinkedStack();
 		while (!empty()) pop();
 
-		StackElement* toCopy = ls.top;
-		StackElement *copy, *lastCopied = NULL;
+		StackElement<T>* toCopy = ls.top;
+		StackElement<T> *copy, *lastCopied = NULL;
 		while (toCopy != NULL) {
-			copy = new StackElement;
+			copy = new StackElement<T>;
 
 			if (top == NULL)
 				top = copy;
@@ -108,3 +159,5 @@ LinkedStack& LinkedStack::operator=(LinkedStack const& ls) {
 	}
 	return *this;
 }
+
+#endif
