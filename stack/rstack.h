@@ -20,6 +20,9 @@ private:
 	// разширяване на стека
 	void resize();
 
+	void copy(ResizingStack const&);
+	void erase();
+
 public:
 
 	// създаване на празен стек
@@ -27,6 +30,9 @@ public:
 
 	// конструктор за копиране
 	ResizingStack(ResizingStack const&);
+
+	// операция за присвояване
+	ResizingStack& operator=(ResizingStack const&);
 
 	// селектори
 

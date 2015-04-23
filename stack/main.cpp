@@ -11,7 +11,7 @@ using namespace std;
 #include "rstack.h"
 #include "lstack.h"
 
-typedef LinkedStack TestStack;
+typedef ResizingStack TestStack;
 
 bool matchParentheses(char open, char close) {
 	return open == '(' && close == ')' ||
@@ -152,7 +152,8 @@ TestStack operator+(TestStack s, int y) {
 }
 
 TestStack operator+(int y, TestStack s) {
-	if (s.top == NULL)
+	// !!! if (s.top == NULL)
+	if (s.empty())
 		cout << "Това е първи елемент!\n";
 	return s + y;
 }

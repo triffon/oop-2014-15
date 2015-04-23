@@ -62,16 +62,31 @@ int ResizingStack::pop() {
 }
 
 ResizingStack::~ResizingStack() {
-	delete[] a;
+	erase();
 	// !!! while (!empty()) pop();
 	// !!! for(int i = 0; i < capacity; i++) a[i] = 0;
 }
 
-ResizingStack::ResizingStack(ResizingStack const& rs)
-	: top(rs.top), capacity(rs.capacity) {
+ResizingStack::ResizingStack(ResizingStack const& rs) {
+	copy(rs);
+}
+
+ResizingStack& ResizingStack::operator=(ResizingStack const& rs) {
+	if (this != &rs) {
+		erase();
+		copy(rs);
+	}
+	return *this;
+}
+
+void ResizingStack::copy(ResizingStack const& rs) {
+	top = rs.top;
+	capacity = rs.capacity;
 	a = new int[capacity];
 	for(int i = 0; i <= top; i++)
 		a[i] = rs.a[i];
 }
 
-
+void ResizingStack::erase() {
+	delete[] a;
+}
