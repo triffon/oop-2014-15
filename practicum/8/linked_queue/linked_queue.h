@@ -5,7 +5,7 @@ template <typename T>
 struct LinkedNode {
 	T data;
 	LinkedNode *next;
-	LinkedNode(int data = 0, LinkedNode<T> *next = NULL);
+	LinkedNode(T data = 0, LinkedNode<T> *next = NULL);
 };
 
 template <typename T>

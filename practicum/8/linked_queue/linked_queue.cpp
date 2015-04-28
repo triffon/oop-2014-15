@@ -2,7 +2,7 @@
 #include "linked_queue.h"
 
 template <typename T>
-LinkedNode<T>::LinkedNode(T data, LinkedNode *next) {
+LinkedNode<T>::LinkedNode(T data, LinkedNode<T> *next) {
 	this->data = data;
 	this->next = next;
 }
@@ -65,7 +65,7 @@ bool LinkedQueue<T>::isEmpty() const {
 }
 
 template <typename T>
-int LinkedQueue<T>::front() const {
+T LinkedQueue<T>::front() const {
 	if (isEmpty()) {
 		std::cout << "Can't get the front element. The queue is empty.\n";
 		return -1;
@@ -88,7 +88,7 @@ int LinkedQueue<T>::getSize() const {
 }
 
 template <typename T>
-void LinkedQueue::push(T el) {
+void LinkedQueue<T>::push(T el) {
 	LinkedNode<T> *newNode = new LinkedNode<T>(el);
 	if (isEmpty()) {
 		frontNode = newNode;
@@ -100,7 +100,7 @@ void LinkedQueue::push(T el) {
 }
 
 template <typename T>
-int LinkedQueue::pop() {
+T LinkedQueue<T>::pop() {
 	if(isEmpty()) {
 		std::cout << "Can't pop. The queue is empty.\n";
 		return -1;
@@ -112,7 +112,7 @@ int LinkedQueue::pop() {
 
 	int data = frontNode->data;
 
-	LinkedNode *tempNode = frontNode;
+	LinkedNode<T> *tempNode = frontNode;
 	frontNode = frontNode->next;
 	delete tempNode;
 
