@@ -8,6 +8,7 @@
 #include <iostream>
 using namespace std;
 #include "player.h"
+#include "hero.h"
 
 void anonymousPrint(Player p) {
 	p.setName("Анонимен");
@@ -45,8 +46,18 @@ void testInputOutput() {
 	cout << p2;
 }
 
+void testHero() {
+	Hero gandalf("Гандалф Сивия", 45, 15);
+	Player catniss("Катнис Евърдийн", 20);
+	gandalf.print();cout << endl;
+	catniss.print();cout << endl;
+	Hero unknown;
+	unknown.print();cout << endl;
+}
+
 int main() {
-	testCopy();
+	// testCopy();
 	// testInputOutput();
+	testHero();
 	return 0;
 }

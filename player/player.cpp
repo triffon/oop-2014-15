@@ -24,7 +24,7 @@ Player::Player(Player const& p)
 
 void Player::print() const {
 	cout << "Играч " << getName() << " има ";
-	cout << getPoints() << " точки" << endl;
+	cout << getPoints() << " точки";
 }
 
 void Player::setName(const char* _name) {
