@@ -19,8 +19,21 @@ void Hero::print() const {
 	cout << " и е герой от " << getLevel() << " ниво";
 }
 
+/*
+Hero::Hero(Hero const& h) :
+		Player(h),
+		level(h.level) {
 
+}
+*/
 
-
-
-
+/*
+Hero& Hero::operator=(Hero const& h) {
+	if (this != &h) {
+		Player::operator=(h);
+		//(Player&)*this = h;
+		level = h.level;
+	}
+	return *this;
+}
+*/

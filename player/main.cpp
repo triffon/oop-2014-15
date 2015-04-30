@@ -53,6 +53,19 @@ void testHero() {
 	catniss.print();cout << endl;
 	Hero unknown;
 	unknown.print();cout << endl;
+	cout << gandalf.getName() << endl;
+	cout << catniss.getName() << endl;
+	// !!! cout << gandalf.points;
+	Player gandalf2 = gandalf;
+	gandalf2.setName("Гандалф Белия");
+	gandalf2.print();cout << endl;
+	Hero catniss2 = (Hero const&)catniss;
+	catniss2.print();cout << endl;
+	Hero& everdeen = (Hero&)catniss;
+	everdeen.setLevel(2);
+	everdeen.print();cout << endl;
+	Hero gandalf3; gandalf3 = gandalf;
+	gandalf3.print();cout << endl;
 }
 
 int main() {

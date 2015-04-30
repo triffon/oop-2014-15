@@ -15,7 +15,9 @@ class Hero : public Player {
 public:
 	// конструктор
 	Hero(char const* = "<анонимен>", int = 0, int = 1);
+	//Hero(Hero const&);
 
+	//Hero& operator=(Hero const&);
 	// селектори
 	int getLevel() const { return level; }
 	void print() const;

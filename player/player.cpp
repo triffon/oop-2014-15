@@ -19,6 +19,7 @@ Player::Player(const char* _name, int _points)
 
 Player::Player(Player const& p)
 	: name(NULL), points(p.points) {
+	// cout << "Копираме Player!" << endl;
 	setName(p.name);
 }
 
