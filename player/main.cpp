@@ -69,32 +69,39 @@ void testHero() {
 	gandalf3.print();cout << endl;
 }
 
-void battle(Hero& hero1, Hero& hero2, int prize) {
+template <typename H1, typename H2>
+Player* determineWinner(H1& hero1, H2& hero2) {
+	if (hero1.getLevel() > hero2.getLevel())
+		return &hero1;
+	else
+	if (hero2.getLevel() > hero1.getLevel())
+		return &hero2;
+	else
+		return NULL;
+}
+
+template <typename H1, typename H2>
+void battle(H1& hero1, H2& hero2, int prize) {
 	cout << "Битка между:" << endl;
 	hero1.print();cout << endl;
 	cout << " и " << endl;
 	hero2.print();cout << endl;
-	if (hero1.getLevel() > hero2.getLevel()) {
-		cout << "Печели " << hero1.getName() << endl;
-		hero1.setPoints(hero1.getPoints() + prize);
+	Player* winner = determineWinner(hero1, hero2);
+	if (winner != NULL) {
+		cout << "Печели " << winner->getName() << endl;
+		winner->setPoints(winner->getPoints() + prize);
 	} else
-	if (hero2.getLevel() > hero1.getLevel()) {
-		cout << "Печели " << hero2.getName() << endl;
-		hero2.setPoints(hero2.getPoints() + prize);
-	} else {
 		cout << "Няма победител!" << endl;
-	}
 }
 
 void testSuperHero() {
 	SuperHero superman("Супермен", 100, 13, "летене", 8);
 	// superman.print();cout << endl;
 	Hero gandalf("Гандалф Сивия", 45, 15);
-	battle(superman, gandalf, 5);
+	battle<SuperHero, Hero>(superman, gandalf, 5);
 	superman.startUsingSP();
 	cout << "Ново ниво: " << superman.getLevel() << endl;
-	battle(superman, gandalf, 5);
-
+	battle(gandalf, superman, 5);
 }
 
 int main() {
