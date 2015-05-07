@@ -8,10 +8,10 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-const size_t MAX = 1501;
 
 #include <iostream>
 using namespace std;
+const size_t MAX = 1501;
 
 class Player {
 	char* name;

@@ -10,6 +10,7 @@ using namespace std;
 #include "player.h"
 #include "hero.h"
 #include "superhero.h"
+#include "bot.h"
 
 void anonymousPrint(Player p) {
 	p.setName("Анонимен");
@@ -104,10 +105,18 @@ void testSuperHero() {
 	battle(gandalf, superman, 5);
 }
 
+void testBot() {
+	Bot b("Deep Thought", 100, "minimax", 0.15, 3);
+	b.print();cout << endl;
+	b.setDifficulty(5);
+	b.print();cout << endl;
+}
+
 int main() {
 	// testCopy();
 	// testInputOutput();
 	// testHero();
-	testSuperHero();
+	// testSuperHero();
+	testBot();
 	return 0;
 }
