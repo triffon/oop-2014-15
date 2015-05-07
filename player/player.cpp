@@ -24,8 +24,7 @@ Player::Player(Player const& p)
 }
 
 void Player::print() const {
-	cout << "Играч " << getName() << " има ";
-	cout << getPoints() << " точки";
+	cout << *this;
 }
 
 void Player::setName(const char* _name) {
@@ -42,7 +41,7 @@ Player::~Player() {
 
 ostream& operator<<(ostream& os, Player const& p) {
 	return os << "Играч " << p.name << " има "
-			   << p.points << " точки" << endl;
+			   << p.points << " точки";
 }
 
 istream& operator>>(istream& is, Player& p) {

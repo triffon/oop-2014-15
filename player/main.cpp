@@ -83,9 +83,9 @@ Player* determineWinner(H1& hero1, H2& hero2) {
 template <typename H1, typename H2>
 void battle(H1& hero1, H2& hero2, int prize) {
 	cout << "Битка между:" << endl;
-	hero1.print();cout << endl;
+	cout << hero1 << endl;
 	cout << " и " << endl;
-	hero2.print();cout << endl;
+	cout << hero2 << endl;
 	Player* winner = determineWinner(hero1, hero2);
 	if (winner != NULL) {
 		cout << "Печели " << winner->getName() << endl;
@@ -96,7 +96,7 @@ void battle(H1& hero1, H2& hero2, int prize) {
 
 void testSuperHero() {
 	SuperHero superman("Супермен", 100, 13, "летене", 8);
-	// superman.print();cout << endl;
+	superman.print();cout << "\n-----------\n";
 	Hero gandalf("Гандалф Сивия", 45, 15);
 	battle<SuperHero, Hero>(superman, gandalf, 5);
 	superman.startUsingSP();

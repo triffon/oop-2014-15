@@ -49,6 +49,8 @@ public:
 	void stopUsingSP() { usingSP = false; }
 
 	void setLevelIncrease(int _linc) { levelIncrease = _linc; }
+
+	friend ostream& operator<<(ostream&, SuperHero const&);
 };
 
 

@@ -24,6 +24,8 @@ public:
 
 	// мутатори
 	void setLevel(int _level) { level = _level; }
+
+	friend ostream& operator<<(ostream&, Hero const&);
 };
 
 
