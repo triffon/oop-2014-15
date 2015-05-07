@@ -9,6 +9,7 @@
 using namespace std;
 #include "player.h"
 #include "hero.h"
+#include "superhero.h"
 
 void anonymousPrint(Player p) {
 	p.setName("Анонимен");
@@ -68,9 +69,38 @@ void testHero() {
 	gandalf3.print();cout << endl;
 }
 
+void battle(Hero& hero1, Hero& hero2, int prize) {
+	cout << "Битка между:" << endl;
+	hero1.print();cout << endl;
+	cout << " и " << endl;
+	hero2.print();cout << endl;
+	if (hero1.getLevel() > hero2.getLevel()) {
+		cout << "Печели " << hero1.getName() << endl;
+		hero1.setPoints(hero1.getPoints() + prize);
+	} else
+	if (hero2.getLevel() > hero1.getLevel()) {
+		cout << "Печели " << hero2.getName() << endl;
+		hero2.setPoints(hero2.getPoints() + prize);
+	} else {
+		cout << "Няма победител!" << endl;
+	}
+}
+
+void testSuperHero() {
+	SuperHero superman("Супермен", 100, 13, "летене", 8);
+	// superman.print();cout << endl;
+	Hero gandalf("Гандалф Сивия", 45, 15);
+	battle(superman, gandalf, 5);
+	superman.startUsingSP();
+	cout << "Ново ниво: " << superman.getLevel() << endl;
+	battle(superman, gandalf, 5);
+
+}
+
 int main() {
 	// testCopy();
 	// testInputOutput();
-	testHero();
+	// testHero();
+	testSuperHero();
 	return 0;
 }
