@@ -11,8 +11,9 @@ Boss::Boss(const char* _name,
 		int _pts, int _lvl, const char* _algo,
 		double _threshold, int _difficulty,
 		int _damage) :
-		Hero(_algo, 10, _lvl),
-		Bot(_name, _pts, _algo, _threshold, _difficulty),
+		Hero(0, 0, _lvl),
+		Bot(0, 0, _algo, _threshold, _difficulty),
+		Player(_name, _pts),
 		damage(_damage) {
 }
 

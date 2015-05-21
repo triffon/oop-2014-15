@@ -49,6 +49,7 @@ void testInputOutput() {
 	cout << p2;
 }
 
+/*
 void testHero() {
 	Hero gandalf("Гандалф Сивия", 45, 15);
 	Player catniss("Катнис Евърдийн", 20);
@@ -70,6 +71,7 @@ void testHero() {
 	Hero gandalf3; gandalf3 = gandalf;
 	gandalf3.print();cout << endl;
 }
+*/
 
 template <typename H1, typename H2>
 Player* determineWinner(H1& hero1, H2& hero2) {
@@ -114,9 +116,15 @@ void testBot() {
 }
 
 void testBoss() {
-	Boss b;
+	Boss b("Саурон", 200, 50, "тъмни сили", 5.8, 10, 100);
 	b.print();cout << endl;
-	// !!! cout << "Име: " << b.getName() << endl;
+	cout << "Име: " << b.getName() << endl;
+
+	Hero gandalf("Гандалф Сивия", 45, 15);
+	gandalf.print();cout << endl;
+
+	Bot dt("Deep Thought", 100, "minimax", 0.15, 3);
+	dt.print();cout << endl;
 }
 
 int main() {
