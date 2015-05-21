@@ -11,6 +11,7 @@
 SuperHero::SuperHero(const char* _name, int _pts, int _level,
 					 const char* _sp, int _linc)
 						: Hero(_name, _pts, _level),
+						  Player(_name, _pts),
 						  levelIncrease(_linc),
 						  usingSP(false) {
 	setSuperPower(_sp);

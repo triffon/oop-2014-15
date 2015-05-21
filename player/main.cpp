@@ -49,7 +49,6 @@ void testInputOutput() {
 	cout << p2;
 }
 
-/*
 void testHero() {
 	Hero gandalf("Гандалф Сивия", 45, 15);
 	Player catniss("Катнис Евърдийн", 20);
@@ -63,15 +62,16 @@ void testHero() {
 	Player gandalf2 = gandalf;
 	gandalf2.setName("Гандалф Белия");
 	gandalf2.print();cout << endl;
+	/* !!!
 	Hero catniss2 = (Hero const&)catniss;
 	catniss2.print();cout << endl;
 	Hero& everdeen = (Hero&)catniss;
 	everdeen.setLevel(2);
 	everdeen.print();cout << endl;
+	!!! */
 	Hero gandalf3; gandalf3 = gandalf;
 	gandalf3.print();cout << endl;
 }
-*/
 
 template <typename H1, typename H2>
 Player* determineWinner(H1& hero1, H2& hero2) {
