@@ -85,9 +85,9 @@ Player* determineWinner(Hero& hero1, Hero& hero2) {
 
 void battle(Hero& hero1, Hero& hero2, int prize) {
 	cout << "Битка между:" << endl;
-	cout << hero1 << endl;
+	hero1.prettyPrint();cout << endl;
 	cout << " и " << endl;
-	cout << hero2 << endl;
+	hero2.prettyPrint();cout << endl;
 	Player* winner = determineWinner(hero1, hero2);
 	if (winner != NULL) {
 		cout << "Печели " << winner->getName() << endl;
@@ -98,7 +98,10 @@ void battle(Hero& hero1, Hero& hero2, int prize) {
 
 void testSuperHero() {
 	SuperHero superman("Супермен", 100, 13, "летене", 8);
-	superman.print();cout << "\n-----------\n";
+	// superman.print();cout << "\n-----------\n";
+	Player* p = &superman;
+	// p->Player::print();cout << endl;
+	p->print(); cout << endl;
 	Hero gandalf("Гандалф Сивия", 45, 15);
 	battle(superman, gandalf, 5);
 	superman.startUsingSP();

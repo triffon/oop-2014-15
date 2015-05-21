@@ -38,6 +38,7 @@ SuperHero::~SuperHero() {
 }
 
 void SuperHero::print() const {
+	Hero::print();
 	cout << *this;
 }
 
@@ -57,7 +58,7 @@ int SuperHero::getLevel() const {
 }
 
 ostream& operator<<(ostream& os, SuperHero const& sh) {
-	return os << (Hero const&)sh
+	return os
 	   << ", но може да стане супергерой със суперсила " << sh.superPower
 	   << ", която дава увеличение на нивото " << sh.levelIncrease;
 }

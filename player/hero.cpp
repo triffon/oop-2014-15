@@ -15,7 +15,7 @@ Hero::Hero(const char* _name, int _points, int _level) :
 }
 
 void Hero::print() const {
-	cout << (Player const&)(*this);
+	Player::print();
 	printNV();
 }
 

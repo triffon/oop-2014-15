@@ -59,3 +59,9 @@ Player& Player::operator=(Player const& p) {
 	}
 	return *this;
 }
+
+void Player::prettyPrint() const {
+	cout << "===========[ Информация за играча ]===========\n";
+	print();
+	cout << "\n==============================================\n";
+}

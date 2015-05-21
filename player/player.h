@@ -25,7 +25,7 @@ public:
 	// селектори
 	char const* getName() const { return name; }
 	int getPoints() const { return points; }
-	void print() const;
+	virtual void print() const;
 
 	// мутатори
 	void setName(char const*);
@@ -37,6 +37,8 @@ public:
 
 	friend ostream& operator<<(ostream&, Player const&);
 	friend istream& operator>>(istream&, Player&);
+
+	void prettyPrint() const;
 
 };
 
