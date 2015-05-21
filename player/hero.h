@@ -19,7 +19,7 @@ public:
 
 	//Hero& operator=(Hero const&);
 	// селектори
-	int getLevel() const { return level; }
+	virtual int getLevel() const { return level; }
 	void print() const;
 	void printNV() const;
 

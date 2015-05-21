@@ -49,8 +49,10 @@ void SuperHero::setSuperPower(const char* _sp) {
 
 int SuperHero::getLevel() const {
 	if (usingSP) {
+		// !!! return ((Hero*)this)->getLevel() + levelIncrease;
 		return Hero::getLevel() + levelIncrease;
 	}
+	// !!! return ((Hero*)this)->getLevel();
 	return Hero::getLevel();
 }
 

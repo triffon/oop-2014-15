@@ -73,8 +73,7 @@ void testHero() {
 	gandalf3.print();cout << endl;
 }
 
-template <typename H1, typename H2>
-Player* determineWinner(H1& hero1, H2& hero2) {
+Player* determineWinner(Hero& hero1, Hero& hero2) {
 	if (hero1.getLevel() > hero2.getLevel())
 		return &hero1;
 	else
@@ -84,8 +83,7 @@ Player* determineWinner(H1& hero1, H2& hero2) {
 		return NULL;
 }
 
-template <typename H1, typename H2>
-void battle(H1& hero1, H2& hero2, int prize) {
+void battle(Hero& hero1, Hero& hero2, int prize) {
 	cout << "Битка между:" << endl;
 	cout << hero1 << endl;
 	cout << " и " << endl;
@@ -102,7 +100,7 @@ void testSuperHero() {
 	SuperHero superman("Супермен", 100, 13, "летене", 8);
 	superman.print();cout << "\n-----------\n";
 	Hero gandalf("Гандалф Сивия", 45, 15);
-	battle<SuperHero, Hero>(superman, gandalf, 5);
+	battle(superman, gandalf, 5);
 	superman.startUsingSP();
 	cout << "Ново ниво: " << superman.getLevel() << endl;
 	battle(gandalf, superman, 5);
@@ -131,8 +129,8 @@ int main() {
 	// testCopy();
 	// testInputOutput();
 	// testHero();
-	// testSuperHero();
+	testSuperHero();
 	// testBot();
-	testBoss();
+	// testBoss();
 	return 0;
 }
