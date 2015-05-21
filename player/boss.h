@@ -25,6 +25,7 @@ public:
 		 int _damage = 5);
 
 	void print() const;
+	void printNV() const;
 
 	int getDamage() const { return damage; }
 	void setDamage(int _damage) { damage = _damage; }

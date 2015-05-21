@@ -18,8 +18,13 @@ Boss::Boss(const char* _name,
 }
 
 void Boss::print() const {
-	Hero::print();
-	Bot::print();
+	Player::print();
+	printNV();
+}
+
+void Boss::printNV() const {
+	Hero::printNV();
+	Bot::printNV();
 	cout << " Този boss взема " << damage <<
 			" точки при успешна атака.";
 }

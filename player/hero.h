@@ -21,6 +21,7 @@ public:
 	// селектори
 	int getLevel() const { return level; }
 	void print() const;
+	void printNV() const;
 
 	// мутатори
 	void setLevel(int _level) { level = _level; }

@@ -15,6 +15,11 @@ Hero::Hero(const char* _name, int _points, int _level) :
 }
 
 void Hero::print() const {
+	cout << (Player const&)(*this);
+	printNV();
+}
+
+void Hero::printNV() const {
 	cout << *this;
 }
 
@@ -38,6 +43,5 @@ Hero& Hero::operator=(Hero const& h) {
 */
 
 ostream& operator<<(ostream& os, Hero const& h) {
-	return os << (Player const&)h <<
-			" и е герой от " << h.getLevel() << " ниво";
+	return os << " и е герой от " << h.getLevel() << " ниво";
 }

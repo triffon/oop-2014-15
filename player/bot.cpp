@@ -16,6 +16,10 @@ Bot::Bot(const char* _name, int _points, const char* _algo, double _threshold,
 
 void Bot::print() const {
 	Player::print();
+	printNV();
+}
+
+void Bot::printNV() const {
 	cout << " и е бот с ниво на трудност " << difficulty;
 	cout << ", който се управлява от AI: ";
 	AI::print();

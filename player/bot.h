@@ -23,6 +23,7 @@ public:
 	// селектори
 	int getDifficulty() const { return difficulty; }
 	void print() const;
+	void printNV() const;
 
 	// мутатори
 	void setDifficulty(int newifficulty);
