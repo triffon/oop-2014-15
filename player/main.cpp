@@ -11,6 +11,7 @@ using namespace std;
 #include "hero.h"
 #include "superhero.h"
 #include "bot.h"
+#include "boss.h"
 
 void anonymousPrint(Player p) {
 	p.setName("Анонимен");
@@ -30,7 +31,7 @@ void testCopy() {
 	Player p1("Гандалф Сивия", 45);
 	Player p2; // = p1;
 	p2 = p1;
-	p1 = p1;
+//	p1 = p1;
 //  p2.setName("Гандалф БелияГандалф БелияГандалф БелияГандалф БелияГандалф БелияГандалф БелияГандалф БелияГандалф БелияГандалф БелияГандалф Белия");
 	p2.setName("Гандалф Белия");
 	p2.setPoints(50);
@@ -112,11 +113,18 @@ void testBot() {
 	b.print();cout << endl;
 }
 
+void testBoss() {
+	Boss b;
+	b.print();cout << endl;
+	// !!! cout << "Име: " << b.getName() << endl;
+}
+
 int main() {
 	// testCopy();
 	// testInputOutput();
 	// testHero();
 	// testSuperHero();
-	testBot();
+	// testBot();
+	testBoss();
 	return 0;
 }
