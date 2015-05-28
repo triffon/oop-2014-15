@@ -33,7 +33,7 @@ public:
 	Player& operator=(Player const&);
 
 	// деструктори
-	~Player();
+	virtual ~Player();
 
 	friend ostream& operator<<(ostream&, Player const&);
 	friend istream& operator>>(istream&, Player&);

@@ -8,6 +8,7 @@
 #include <cstring>
 #include <cmath>
 #include <iostream>
+#include <typeinfo>
 using namespace std;
 
 #include "player.h"
@@ -61,7 +62,10 @@ Player& Player::operator=(Player const& p) {
 }
 
 void Player::prettyPrint() const {
-	cout << "===========[ Информация за играча ]===========\n";
+	cout << "===========[ Информация за ";
+	// cout << typeid(this).name();
+	cout << typeid(*this).name();
+	cout << " ]===========\n";
 	print();
 	cout << "\n==============================================\n";
 }

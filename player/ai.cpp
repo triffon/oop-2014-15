@@ -35,6 +35,7 @@ AI& AI::operator =(const AI& ai) {
 }
 
 AI::~AI() {
+	// cout << "~AI()\n";
 	delete[] algorithm;
 }
 

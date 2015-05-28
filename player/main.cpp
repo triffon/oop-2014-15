@@ -128,12 +128,20 @@ void testBoss() {
 	dt.print();cout << endl;
 }
 
+void testVirtualDestructor() {
+	while (true) {
+		Player* pp = new Bot("Deep Thought", 100, "minimax", 0.15, 3);
+		delete pp;
+	}
+}
+
 int main() {
 	// testCopy();
 	// testInputOutput();
 	// testHero();
-	testSuperHero();
+	// testSuperHero();
 	// testBot();
 	// testBoss();
+	testVirtualDestructor();
 	return 0;
 }
