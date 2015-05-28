@@ -31,7 +31,7 @@ int ResizingStack::peek() const {
 	return a[top];
 }
 
-void ResizingStack::push(int x) {
+void ResizingStack::push(int const& x) {
 	if (full())
 		resize();
 	a[++top] = x;

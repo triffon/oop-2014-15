@@ -10,7 +10,9 @@
 
 int const MAX = 100;
 
-class Stack {
+#include "abstract_stack.h"
+
+class Stack : public AbstractStack<int> {
 private:
 	int a[MAX];	// елементите на стека
 	int top;	// индекс на последния елемент
@@ -34,7 +36,7 @@ public:
 	// мутатори
 
 	// включване на елемент
-	void push(int);
+	void push(int const&);
 
 	// изключване на елемент
 	int pop();

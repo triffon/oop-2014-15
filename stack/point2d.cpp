@@ -19,8 +19,7 @@ class Point2D {
 public:
 
 	// конструктори
-	Point2D() { x = y = 0; }
-	Point2D(T, T);
+	Point2D(T = 0, T = 0);
 
 	// селектори
 	T getX() const { return x; }

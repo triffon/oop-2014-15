@@ -10,6 +10,7 @@ using namespace std;
 #include "stack.h"
 #include "rstack.h"
 #include "lstack.cpp"
+#include "lenstack.cpp"
 #include "point2d.cpp"
 
 typedef LinkedStack<int> TestStack;
@@ -142,7 +143,7 @@ void testMemory() {
 	cin >> c;
 }
 
-void printStack(TestStack& stack) {
+void printStack(AbstractStack<int>& stack) {
 	while (!stack.empty())
 		cout << stack.pop() << endl;
 }
@@ -186,13 +187,7 @@ void testCopy() {
 	printStack(s3);
 }
 
-int main() {
-	// testStack();
-	testParentheses();
-	// testDynamic();
-	// findAverage();
-	// testMemory();
-	// testCopy();
+void testStackTemplate() {
 	LinkedStack<double> ls;
 	ls.push(1.8);
 	cout << ls.pop() << endl;
@@ -200,6 +195,39 @@ int main() {
 	LinkedStack<Point2D<double> > sp;
 	Point2D<double> p(1,2);
 	sp.push(p);
+}
+
+void testAbstractStack() {
+	int const N = 4;
+	AbstractStack<int>* stacks[] =
+							  { new Stack,
+								new ResizingStack,
+								new LinkedStack<int>,
+								new LengthStack<int> };
+	for(int i = 0; i < N; i++) {
+		for(int j = 0; j < 10; j++)
+			stacks[i]->push(j);
+	}
+
+	for(int i = 0; i < N; i++)
+		printStack(*stacks[i]);
+
+	for(int i = 0; i < N; i++)
+		delete stacks[i];
+
+	// !!! AbstractStack<int> as;
+}
+
+int main() {
+	// testStack();
+	// testParentheses();
+	// testDynamic();
+	// findAverage();
+	// testMemory();
+	// testCopy();
+	// testStackTemplate();
+	testAbstractStack();
+
 	return 0;
 }
 

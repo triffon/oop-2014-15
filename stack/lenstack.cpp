@@ -32,7 +32,7 @@ public:
 	}
 
 	T pop() {
-		if (!empty())
+		if (!LinkedStack<T>::empty())
 			length--;
 		return LinkedStack<T>::pop();
 	}

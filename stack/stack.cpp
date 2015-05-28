@@ -29,7 +29,7 @@ int Stack::peek() const {
 	return a[top];
 }
 
-void Stack::push(int x) {
+void Stack::push(int const& x) {
 	if (full()) {
 		cout << "Грешка: опит за включване в пълен стек!\n";
 	} else

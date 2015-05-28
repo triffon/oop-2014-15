@@ -8,7 +8,9 @@
 #ifndef RSTACK_H_
 #define RSTACK_H_
 
-class ResizingStack {
+#include "abstract_stack.h"
+
+class ResizingStack : public AbstractStack<int> {
 private:
 	int* a; // елементите на стека
 	int top; // индекс на последния елемент
@@ -45,7 +47,7 @@ public:
 	// мутатори
 
 	// включване на елемент
-	void push(int);
+	void push(int const&);
 
 	// изключване на елемент
 	int pop();
