@@ -135,6 +135,22 @@ void testVirtualDestructor() {
 	}
 }
 
+void testPrintable() {
+	const int N = 4;
+	Printable* a[] = { new Boss("Саурон", 200, 50, "тъмни сили", 5.8, 10, 100),
+						new Bot("Deep Thought", 100, "minimax", 0.15, 3),
+						new SuperHero("Супермен", 100, 13, "летене", 8),
+						new AI("IBM Watson", 1.5)
+	};
+	for(int i = 0; i < N; i++) {
+		a[i]->print();
+		cout << endl;
+	}
+
+	for(int i = 0; i < N; i++)
+		delete a[i];
+}
+
 int main() {
 	// testCopy();
 	// testInputOutput();
@@ -142,6 +158,7 @@ int main() {
 	// testSuperHero();
 	// testBot();
 	// testBoss();
-	testVirtualDestructor();
+	// testVirtualDestructor();
+	testPrintable();
 	return 0;
 }

@@ -13,7 +13,9 @@
 using namespace std;
 const size_t MAX = 1501;
 
-class Player {
+#include "printable.h"
+
+class Player : virtual public Printable {
 	char* name;
 	int points;
 public:
