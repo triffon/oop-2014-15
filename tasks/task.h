@@ -30,7 +30,7 @@ public:
 	/*** Интерфейс ***/
 
 	// извеждане на информация за задачата
-	virtual void print() const = 0;
+	virtual void print() const;
 
 	// брой единици време за изпълнение на задачата
 	virtual int getTime() const = 0;
@@ -40,7 +40,7 @@ public:
 
 	// работа по задачата
 	// връща неусвоените единици време
-	virtual int work(int = 1) const = 0;
+	virtual int work(int = 1) = 0;
 
 	/*******/
 };

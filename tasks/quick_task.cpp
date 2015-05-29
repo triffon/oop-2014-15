@@ -5,6 +5,9 @@
  *      Author: trifon
  */
 
+#include <iostream>
+using namespace std;
+
 #include "quick_task.h"
 
 QuickTask::QuickTask(const char* _name)
@@ -12,8 +15,18 @@ QuickTask::QuickTask(const char* _name)
 }
 
 void QuickTask::print() const {
+	cout << "бърза ";
+	Task::print();
+	cout << ", която ";
+	if (!finished)
+		cout << "НЕ ";
+	cout << "е завършена";
 }
 
-int QuickTask::work(int t) const {
-
+int QuickTask::work(int t) {
+	if (t > 0 && !finished) {
+		finished = true;
+		t--;
+	}
+	return t;
 }

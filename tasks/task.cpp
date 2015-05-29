@@ -6,6 +6,8 @@
  */
 
 #include <cstring>
+#include <iostream>
+using namespace std;
 
 #include "task.h"
 
@@ -31,4 +33,8 @@ Task& Task::operator =(const Task& task) {
 
 Task::~Task() {
 	delete[] name;
+}
+
+void Task::print() const {
+	cout << "задача \"" << name << '\"';
 }
