@@ -8,7 +8,9 @@
 #ifndef TASK_H_
 #define TASK_H_
 
-class Task {
+#include "cloneable.h"
+
+class Task : public Cloneable {
 private:
 	char* name;
 
@@ -25,6 +27,10 @@ public:
 	virtual ~Task();
 
 	char const* getName() const { return name; }
+
+	bool isFinished() const {
+		return getProgress() == getTime();
+	}
 
 
 	/*** Интерфейс ***/

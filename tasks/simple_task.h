@@ -1,40 +1,43 @@
 /*
- * quick_task.h
+ * simple_task.h
  *
- *  Created on: 28.05.2015 г.
+ *  Created on: 29.05.2015 г.
  *      Author: trifon
  */
 
-#ifndef QUICK_TASK_H_
-#define QUICK_TASK_H_
+#ifndef SIMPLE_TASK_H_
+#define SIMPLE_TASK_H_
 
 #include "task.h"
 
-class QuickTask : public Task {
+class SimpleTask : public Task {
 private:
-	bool finished;
+	int progress;
+	int time;
 
 public:
-	QuickTask(char const*);
+
+	SimpleTask(char const*, int);
 
 	Cloneable* clone() const {
-		return new QuickTask(*this);
+		return new SimpleTask(*this);
 	}
 
 	// извеждане на информация за задачата
 	void print() const;
 
 	// брой единици време за изпълнение на задачата
-	int getTime() const { return 1; }
+	int getTime() const { return time; }
 
 	// прогрес по задачата в единици време
-	int getProgress() const { return finished ? 1 : 0; }
+	int getProgress() const { return progress; }
 
 	// работа по задачата
 	// връща неусвоените единици време
 	int work(int = 1);
+
 };
 
 
 
-#endif /* QUICK_TASK_H_ */
+#endif /* SIMPLE_TASK_H_ */
